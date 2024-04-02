@@ -14,7 +14,7 @@ exports.addCategory = async (req, res, next) => {
     }catch(err){
         
         res.status(500).json({
-        err
+        message: err
         })
       
     }
