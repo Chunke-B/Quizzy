@@ -3,6 +3,8 @@ const VideoCategory = require('./../models/videoCategory');
 exports.addCategory = async (req, res, next) => {
     try{
 
+        console.log(req.query);
+
         const data = req.body;
     
         const category = await VideoCategory.create(data)
