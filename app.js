@@ -1,6 +1,8 @@
 const express = require('express');
 const {addCategory, getAllCategories, getCategory, updateCategory, deleteCategory} = require('./controllers/videoCategory.controller')
 
+// const { }
+
 
 const app = express ();
 
@@ -11,6 +13,21 @@ app.get('/quizzy/v1/category', getAllCategories);
 app.get('/quizzy/v1/category/:id', getCategory );
 app.patch('/quizzy/v1/category/:id', updateCategory );
 app.delete('/quizzy/v1/category/:id', deleteCategory  );
+
+
+// app.post('/quizzy/v1/category', addCategory);
+// app.get('/quizzy/v1/category', getAllCategories);
+// app.get('/quizzy/v1/category/:id', getCategory );
+// app.patch('/quizzy/v1/category/:id', updateCategory );
+// app.delete('/quizzy/v1/category/:id', deleteCategory  );
+
+
+
+// app.post('/quizzy/v1/category', addCategory);
+// app.get('/quizzy/v1/category', getAllCategories);
+// app.get('/quizzy/v1/category/:id', getCategory );
+// app.patch('/quizzy/v1/category/:id', updateCategory );
+// app.delete('/quizzy/v1/category/:id', deleteCategory  );
 
 
 app.use('*', (req, res, next) => {

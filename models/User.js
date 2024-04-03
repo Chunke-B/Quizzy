@@ -24,6 +24,11 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         required: [true, ' A user must have an adress'],
     },
+    role:{
+        type: string,
+        trim: true,
+        required: [true, ' A user must have an adress'],
+    },
     profile:
         {
             type: mongoose.Types.ObjectId,
