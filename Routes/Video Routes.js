@@ -2,11 +2,12 @@ const express = require('express');
 const videoController = require('./../controllers/video.controller');
 
 const router = express.Router();
+// app.use(express.json())
 
-app.use(express.json())
+// app.use(express.json())
 
 router.
-post('/quizzy/v1/video ',
+post('/quizzy/v1/video',
 [
     body('title').notEmpty().withMessage('Title is required'),
     body('description').notEmpty().withMessage('Description is required'),
@@ -30,8 +31,8 @@ get('/quizzy/v1/video :videoId', videoController.getVideo);
 
 
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ message: 'Internal Server Error' });
-  });
+// app.use((err, req, res, next) => {
+//     console.error(err.stack);
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   });
 module.exports = router;

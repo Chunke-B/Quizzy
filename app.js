@@ -1,5 +1,7 @@
 const express = require('express');
 const {addCategory, getAllCategories, getCategory, updateCategory, deleteCategory} = require('./controllers/videoCategory.controller')
+require('dotenv').config();
+
 
 // const { }
 
@@ -15,19 +17,23 @@ app.patch('/quizzy/v1/category/:id', updateCategory );
 app.delete('/quizzy/v1/category/:id', deleteCategory  );
 
 
-// app.post('/quizzy/v1/category', addCategory);
-// app.get('/quizzy/v1/category', getAllCategories);
-// app.get('/quizzy/v1/category/:id', getCategory );
-// app.patch('/quizzy/v1/category/:id', updateCategory );
-// app.delete('/quizzy/v1/category/:id', deleteCategory  );
+const questionRoutes = require('./../EXAMPLE/Routes/Pastquestion routes');
+
+const userRoutes = require('./Routes/User routes');
+app.use('/api/users', userRoutes);
 
 
 
-// app.post('/quizzy/v1/category', addCategory);
-// app.get('/quizzy/v1/category', getAllCategories);
-// app.get('/quizzy/v1/category/:id', getCategory );
-// app.patch('/quizzy/v1/category/:id', updateCategory );
-// app.delete('/quizzy/v1/category/:id', deleteCategory  );
+
+// const videoRoutes = require('./Routes/Video Routes')
+
+// app.use('/api/users', videoRoutes);
+
+// Error handling middleware
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).json({ message: 'Internal Server Error' });
+// });
 
 
 app.use('*', (req, res, next) => {

@@ -1,4 +1,5 @@
 const Video = require('./../models/video');
+const VideoCategory = require('../models/videoCategory');
 const { validationResult } = require('express-validator');
 
 // Upload a video
