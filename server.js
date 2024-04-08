@@ -6,6 +6,8 @@ dotenv.config({ path: './config.env'});
 
 
 const DB = `mongodb+srv://chunke135:9lJvdebg5WPs0F4f@cluster0.mbjrcw6.mongodb.net/`;
+const db = client.db('Quizzy');
+const pdfCollection = db.collection('pdfs');
 
 
 mongoose.connect(DB ,
