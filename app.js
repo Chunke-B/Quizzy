@@ -26,7 +26,8 @@ app.use('/api/users', userRoutes);
 
 
 
-// const videoRoutes = require('./Routes/Video Routes')
+const videoRoutes = require('./Routes/Video Routes')
+app.use('/api/video', videoRoutes);
 
 // app.use('/api/users', videoRoutes);
 

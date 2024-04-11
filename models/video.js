@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const videoSchema = new mongoose.Schema({
     videoId: {
-        type: Number,
+        type: String,
         unique: true,
         required: [true, 'A video must have a unique id']
     },
@@ -18,12 +18,12 @@ const videoSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A video must have a url']
     },
-    UploadedBy:{
+    userId:{
         type: mongoose.Types.ObjectId,
         ref: 'User',
         required: [true, 'Eact video must be uploaded by a user']
     },
-    category: {
+    categoryId: {
         type: mongoose.Types.ObjectId,
         ref: 'VideoCategory',
         required: [true, 'Eact video must have a particular category IDaz']

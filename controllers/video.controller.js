@@ -1,21 +1,30 @@
 const Video = require('./../models/video');
 const VideoCategory = require('../models/videoCategory');
 const { validationResult } = require('express-validator');
+const app = require('../app');
+
+const express = require('express');
+// const app = express();
+
+// Middleware to parse JSON body
+// app.use(express.json());
 
 // Upload a video
 exports.uploadVideo = async (req, res) => {
   try {
-    const errors = validationResult(req);
+    const errors = validationResult(req.body);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, description, categoryId, userId } = req.body;
+    const { title, description, categoryId, userId, url, videoId } = req.body;
     const video = new Video({
       title,
       description,
-      category: categoryId,
-      user: userId,
+      categoryId,
+      userId,
+      url,
+      videoId
     });
     await video.save();
     res.status(201).json({ message: 'Video uploaded successfully', video });

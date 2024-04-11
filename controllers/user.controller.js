@@ -29,7 +29,7 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-    res.status(200).json({ token });
+    res.status(200).json({ token, message: 'Successful login for ' + email });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
 
 exports.getProfile = async (req, res) => {
   try {
-    const userId = req.body.userId;
+    const userId = req. body .userId;
     const user = await User.findById(userId);
     res.status(200).json(user);
   } catch (error) {
@@ -57,7 +57,7 @@ exports.getAllUsers = async(req, res, next) => {
 }
 exports.updateProfile = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.body.userId;
     const { username, email } = req.body;
     await User.findByIdAndUpdate(userId, { username, email });
     res.status(200).json({ message: 'Profile updated successfully' });

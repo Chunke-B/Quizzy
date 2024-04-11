@@ -6,9 +6,9 @@ exports.addCategory = async (req, res, next) => {
 
         console.log(req.query);
 
-        const data = req.body;
+        const {categoryId, name} = req.body;
     
-        const category = await VideoCategory.create(data)
+        const category = await VideoCategory.create({categoryId, name})
     
         res.status(201).json({
             message: 'We recieved your request to create a category',
