@@ -16,10 +16,6 @@ app.get('/quizzy/v1/category/:id', getCategory );
 app.patch('/quizzy/v1/category/:id', updateCategory );
 app.delete('/quizzy/v1/category/:id', deleteCategory  );
 
-
-const questionRoutes = require('./../EXAMPLE/Routes/Pastquestion routes');
-
-
 const userRoutes = require('./Routes/User routes');
 app.use('/api/users', userRoutes);
 
