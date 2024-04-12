@@ -12,16 +12,24 @@ const PastQuestionPaperSchema = new mongoose.Schema({
             trim: true,
             required: [true, 'A Paper must have a title'],
         },
-        content: {
+        filename: {
             type: String,
             trim: true,
-            required: [true, 'A Paper must have contents inside it'],
+            required: [true, 'A Paper must have a filename that contains contents'],
         },
-        Course:{
+        CourseID:{
             type: mongoose.Types.ObjectId,
             ref: 'Course',
             required: [true, 'Each paper must have a Course']
-        }
+        },
+        Questiontype:{
+            type: String
+        },
+        year: {
+            type: Number,
+            required: true,
+            unique: true
+          }
     })
     
     const PastQuestionPaper = mongoose.model('PastQuestionPaper', PastQuestionPaperSchema);

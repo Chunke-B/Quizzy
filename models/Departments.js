@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 
 const DepartmentsSchema = new mongoose.Schema({
-    DepartmentId: {
+    departmentId: {
             type: Number,
             unique: true,
-            required: [true, 'A Department must have a a unique user ID']
+            required: [true, 'A Department must have a departmentID'],
         },
         name: {
             type: String,
@@ -13,6 +13,6 @@ const DepartmentsSchema = new mongoose.Schema({
             required: [true, 'A Department must have a name'],
         },
     })
-    const Department = mongoose.model('Department', DepartmentSchema);
+    const Department = mongoose.model('Department', DepartmentsSchema);
     
     module.exports = Department;

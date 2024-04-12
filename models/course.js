@@ -12,10 +12,22 @@ const CourseSchema = new mongoose.Schema({
             trim: true,
             required: [true, 'A Department must have a name'],
         },
-        Department:{
+        DepartmentID:{
             type: mongoose.Types.ObjectId,
             ref: 'Department',
             required: [true, 'Each course must have a Department']
+        },
+        postDate:{
+            Date
+        },
+        status: {
+            type: String,
+            enum: ['Active', 'Inactive'],
+            default: 'Active',
+          },
+          image:{
+            type: String,
+            required: true
         }
     })
     const Course = mongoose.model('Course', CourseSchema);

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const {addCategory, getAllCategories, getCategory, updateCategory, deleteCategory} = require('./controllers/videoCategory.controller')
 require('dotenv').config();
 
@@ -8,13 +9,21 @@ require('dotenv').config();
 
 const app = express ();
 
-app.use(express.json())
+app.use(express.json());
+
+const corsOptions = {
+origin :' https://quizzy-dashboard.vercel.app',
+};
+app.use(cors(corsOptions));;
+
+
 
 app.post('/quizzy/v1/category', addCategory);
 app.get('/quizzy/v1/category', getAllCategories);
 app.get('/quizzy/v1/category/:id', getCategory );
 app.patch('/quizzy/v1/category/:id', updateCategory );
 app.delete('/quizzy/v1/category/:id', deleteCategory  );
+
 
 const userRoutes = require('./Routes/User routes');
 app.use('/api/users', userRoutes);
@@ -24,6 +33,20 @@ app.use('/api/users', userRoutes);
 
 const videoRoutes = require('./Routes/Video Routes')
 app.use('/api/video', videoRoutes);
+
+
+const departmentRoutes = require('./Routes/department routes')
+app.use('/api/department', departmentRoutes );
+
+const schoolRoutes = require('./Routes/school routes')
+app.use('/api/school', schoolRoutes);
+
+
+
+
+// const courseRoutes = require('./Routes/course routes')
+// app.use('/api/course', courseRoutes);
+
 
 // app.use('/api/users', videoRoutes);
 

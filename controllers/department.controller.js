@@ -10,7 +10,7 @@ exports.addDepartment= async (req, res, next) => {
         const category = await Department.create(data)
     
         res.status(201).json({
-            message: 'We recieved your request to create a school',
+            message: 'We recieved your request to create a department',
             data: category
         })
     }catch(err){
@@ -21,6 +21,7 @@ exports.addDepartment= async (req, res, next) => {
       
     }
 }
+
 
 exports.getAllDepartments = async (req, res, next) => {
     try{
