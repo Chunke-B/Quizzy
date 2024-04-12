@@ -6,6 +6,7 @@ router.post('/quizzy/v1/register', userController.register);
 router.post('/quizzy/v1/login', userController.login);
 router.get('/quizzy/v1/profile/', userController.getProfile);
 router.patch('/quizzy/v1/profile', userController.updateProfile);
+router.get('/quizzy/v1/allusers/', userController.getAllUsers);
 
 router.get('/', userController.getAllUsers)
 
