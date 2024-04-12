@@ -11,10 +11,8 @@ const app = express ();
 
 app.use(express.json());
 
-const corsOptions = {
-origin :' https://quizzy-dashboard.vercel.app',
-};
-app.use(cors(corsOptions));;
+
+app.use(cors());
 
 
 
