@@ -6,8 +6,6 @@ const videoSchema = new mongoose.Schema({
         unique: true,
         required: [true, 'A video must have a unique id']
     },
-
-    
     title: {
         type: String,
         required: [true, 'A video must have a title']
